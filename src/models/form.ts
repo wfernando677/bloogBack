@@ -1,20 +1,12 @@
-import {Schema,model,Types,Model} from "mongoose";
+import { Schema, model } from "mongoose";
 import { Form } from "../interfaces/form.interface";
 
-const FormSchema= new Schema<Form>(
+const FormSchema = new Schema<Form>(
     {
-        nombre:{
-            type:String,
-        },
-        email:{
-            type:String,            
-        },
-        telefono:{
-            type:String
-        },
-        direccion:{
-            type:String
-        }
+        nombre: { type: String },
+        email: { type: String }, 
+        telefono: { type: String },
+        direccion: { type: String }
     },
     {
         timestamps: true,
@@ -22,5 +14,5 @@ const FormSchema= new Schema<Form>(
     }
 )
 
-const formModel=model('form',FormSchema)
+const formModel = model('form', FormSchema)
 export default formModel

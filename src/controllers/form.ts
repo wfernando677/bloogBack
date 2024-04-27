@@ -1,56 +1,51 @@
-import { Response, Request, response } from 'express';
+import { Response, Request } from 'express';
 import { handleHttp } from "../utils/error.handle"
-import { insertAnswer, getAnswers, getAnswer, updateAnswer, deleteAnswer} from '../services/form';
+import { insertAnswer, getAnswers, getAnswer, updateAnswer, deleteAnswer } from '../services/form';
 
-const getForm = async (req:Request,res:Response) => {
+const getForm = async (req: Request, res: Response) => {
     try {
-        const {id}=req.params;
-         const response= await getAnswer(id)
-         const data= response ? response:"NOT_FOUND"
-         res.send(data)
+        const { id } = req.params;
+        const response = await getAnswer(id)
+        const data = response ? response : "NOT_FOUND"
+        res.send(data)
     } catch (e) {
-        handleHttp(res,'ERROR_GET_FORM')
+        handleHttp(res, 'ERROR_GET_FORM')
     }
-
 }
 
-const getFormAll =async (req:Request,res:Response) => {
+const getFormAll = async (_: Request, res: Response) => {
     try {
-        const response=await getAnswers();
+        const response = await getAnswers();
         res.send(response)
     } catch (e) {
-        handleHttp(res,'ERROR_GET_FORM_ALL')
-
+        handleHttp(res, 'ERROR_GET_FORM_ALL')
     }
 }
 
-const updateForm = async ({params, body}:Request,res:Response) => {
+const updateForm = async ({ params, body }: Request, res: Response) => {
     try {
-        const {id} =params;
-        const response = await updateAnswer(id,body)
+        const { id } = params;
+        const response = await updateAnswer(id, body)
         res.send(response)
-
     } catch (e) {
-        handleHttp(res,'ERROR_UPDATE_FORM')
+        handleHttp(res, 'ERROR_UPDATE_FORM')
     }
 }
 
-const postForm = async (req:Request,res:Response) => {
+const postForm = async (req: Request, res: Response) => {
     try {
         const body = req.body;
-        const resp= await insertAnswer(body);
-        const data = resp ? resp :"ingrese datos"
+        const resp = await insertAnswer(body);
+        const data = resp ? resp : "NO DATA"
         res.send(data)
-        
     } catch (e) {
-        handleHttp(res,'ERROR_POST_FORM',e)
-
+        handleHttp(res, 'ERROR_POST_FORM', e)
     }
 }
 
-const deleteForm = async ({params}:Request,res:Response) => {
+const deleteForm = async ({ params }: Request, res: Response) => {
     try {
-        const {id} = params;
+        const { id } = params;
         const response = await deleteAnswer(id);
         res.send(response)
     } catch (e) {
@@ -59,12 +54,10 @@ const deleteForm = async ({params}:Request,res:Response) => {
     }
 }
 
-
 export {
     getForm,
     getFormAll,
     updateForm,
     postForm,
     deleteForm
-
 }
