@@ -1,3 +1,6 @@
 export interface Form {
-    answers:string
+    nombre:string,
+    email:string,
+    telefono:string,
+    direccion:string
 }

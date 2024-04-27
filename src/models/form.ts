@@ -3,9 +3,17 @@ import { Form } from "../interfaces/form.interface";
 
 const FormSchema= new Schema<Form>(
     {
-        answers:{
+        nombre:{
             type:String,
-            required: true
+        },
+        email:{
+            type:String,            
+        },
+        telefono:{
+            type:String
+        },
+        direccion:{
+            type:String
         }
     },
     {
