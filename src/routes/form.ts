@@ -8,9 +8,4 @@ router.post('/',auth,postForm)
 router.put('/:id',auth,updateForm)
 router.delete('/:id',auth,deleteForm)
 
-// router.get('/:id',getForm)
-// router.get('/',getFormAll)
-// router.post('/',postForm)
-// router.put('/:id',updateForm)
-// router.delete('/:id',deleteForm)
 export {router};
