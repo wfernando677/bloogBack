@@ -4,7 +4,7 @@ import { Form } from "../interfaces/form.interface";
 const FormSchema = new Schema<Form>(
     {
         nombre: { type: String },
-        cedula:{type:String},
+        numIdent:{type:String},
         email: { type: String }, 
         telefono: { type: String },
         direccion: { type: String },

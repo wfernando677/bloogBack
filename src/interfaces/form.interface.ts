@@ -1,6 +1,6 @@
 export interface Form {
     nombre:string,
-    cedula:string,
+    numIdent:string,
     email:string,
     telefono:string,
     direccion:string
