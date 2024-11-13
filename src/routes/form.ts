@@ -3,7 +3,7 @@ import { deleteForm, getForm, getFormAll, postForm, updateForm } from "../contro
 const router = Router();
 router.get('/:id',getForm)
 router.get('/',getFormAll)
-router.post('/',postForm)
+router.post('/:id',postForm)
 router.put('/:id',updateForm)
 router.delete('/:id',deleteForm)
 
