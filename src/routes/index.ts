@@ -5,6 +5,7 @@ const PATH_ROUTER = `${__dirname}` //trae la ruta en donde estamos en este momen
 
 const router = Router();
 
+
 const cleanFileName = (fileName: string) => {
     const file = fileName.split('.').shift(); // nos devuelve todo lo que tenga antes del punto eplo index, item
     return file;
