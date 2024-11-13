@@ -37,10 +37,9 @@ const postForm = async (req: Request, res: Response) => {
         const body = req.body;
         const resp = await insertAnswer(body);
         const data = resp ? resp : "NO DATA"
-        console.log(data);
+        console.log("desde controller",data);
         
-        res.status(201).json({ message: 'Datos creados', data: data });
-
+        res.send(data)
     } catch (e) {
         handleHttp(res, 'ERROR_POST_FORM', e)
     }

@@ -3,6 +3,8 @@ import formModel from '../models/form';
 
 const insertAnswer = async (form: Form) => {
     const responseInsert = await formModel.create(form)
+    console.log("desde servuuce",responseInsert);
+
     return responseInsert;
 }
 const getAnswers = async () => {
