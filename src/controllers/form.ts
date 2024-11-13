@@ -39,7 +39,8 @@ const postForm = async (req: Request, res: Response) => {
         const data = resp ? resp : "NO DATA"
         console.log(data);
         
-        res.send(data)
+        res.status(201).json({ message: 'Datos creados', data: data });
+
     } catch (e) {
         handleHttp(res, 'ERROR_POST_FORM', e)
     }
